@@ -1,12 +1,12 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Controllers\Users;
+namespace julianeffendi\eofficeboilerplate\Controllers\Users;
 
-use julianeffendi/eofficeboilerplate\Controllers\BaseController;
-use julianeffendi/eofficeboilerplate\Entities\MenuEntity;
-use julianeffendi/eofficeboilerplate\Models\GroupMenuModel;
-use julianeffendi/eofficeboilerplate\Models\MenuModel;
 use CodeIgniter\API\ResponseTrait;
+use julianeffendi\eofficeboilerplate\Controllers\BaseController;
+use julianeffendi\eofficeboilerplate\Entities\MenuEntity;
+use julianeffendi\eofficeboilerplate\Models\GroupMenuModel;
+use julianeffendi\eofficeboilerplate\Models\MenuModel;
 
 /**
  * Class MenuController.
@@ -35,11 +35,11 @@ class MenuController extends BaseController
             return $this->respond(['data' => nestable()]);
         }
 
-        return view('julianeffendi/eofficeboilerplate\Views\Menu\index', [
-            'title'    => lang('boilerplate.menu.title'),
+        return view('julianeffendi\eofficeboilerplate\Views\Menu\index', [
+            'title' => lang('boilerplate.menu.title'),
             'subtitle' => lang('boilerplate.menu.subtitle'),
-            'roles'    => $this->authorize->groups(),
-            'menus'    => $this->menu->orderBy('sequence', 'asc')->findAll(),
+            'roles' => $this->authorize->groups(),
+            'menus' => $this->menu->orderBy('sequence', 'asc')->findAll(),
         ]);
     }
 
@@ -48,8 +48,7 @@ class MenuController extends BaseController
      *
      * @return CodeIgniter\API\ResponseTrait
      */
-    public function new()
-    {
+    function new () {
         $data = $this->request->getJSON();
         $menu = new MenuEntity();
 
@@ -70,7 +69,7 @@ class MenuController extends BaseController
             }
 
             $this->db->transCommit();
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             $this->db->transRollback();
 
             return $this->fail(lang('boilerplate.menu.msg.msg_fail_order'));
@@ -87,11 +86,11 @@ class MenuController extends BaseController
     public function create()
     {
         $validationRules = [
-            'parent_id'   => 'required|numeric',
-            'active'      => 'required|numeric',
-            'icon'        => 'required|min_length[5]|max_length[55]',
-            'route'       => 'required|max_length[255]',
-            'title'       => 'required|min_length[2]|max_length[255]',
+            'parent_id' => 'required|numeric',
+            'active' => 'required|numeric',
+            'icon' => 'required|min_length[5]|max_length[55]',
+            'route' => 'required|max_length[255]',
+            'title' => 'required|min_length[2]|max_length[255]',
             'groups_menu' => 'required',
         ];
 
@@ -115,12 +114,12 @@ class MenuController extends BaseController
             foreach ($this->request->getPost('groups_menu') as $groups) {
                 $this->groupsMenu->insert([
                     'group_id' => $groups,
-                    'menu_id'  => $id,
+                    'menu_id' => $id,
                 ]);
             }
 
             $this->db->transCommit();
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             $this->db->transRollback();
 
             return redirect()->back()->with('sweet-error', $e->getMessage());
@@ -139,11 +138,11 @@ class MenuController extends BaseController
     public function update($id)
     {
         $validationRules = [
-            'parent_id'   => 'required|numeric',
-            'active'      => 'required|numeric',
-            'icon'        => 'required|min_length[5]|max_length[55]',
-            'route'       => 'required|max_length[255]',
-            'title'       => 'required|min_length[2]|max_length[255]',
+            'parent_id' => 'required|numeric',
+            'active' => 'required|numeric',
+            'icon' => 'required|min_length[5]|max_length[55]',
+            'route' => 'required|max_length[255]',
+            'title' => 'required|min_length[2]|max_length[255]',
             'groups_menu' => 'required',
         ];
 
@@ -158,10 +157,10 @@ class MenuController extends BaseController
         try {
             $menu = $this->menu->update($id, [
                 'parent_id' => $data['parent_id'],
-                'active'    => $data['active'],
-                'title'     => $data['title'],
-                'icon'      => $data['icon'],
-                'route'     => $data['route'],
+                'active' => $data['active'],
+                'title' => $data['title'],
+                'icon' => $data['icon'],
+                'route' => $data['route'],
             ]);
 
             // first remove all groups_menu by id
@@ -171,12 +170,12 @@ class MenuController extends BaseController
                 // insert with new
                 $this->groupsMenu->insert([
                     'group_id' => $groups,
-                    'menu_id'  => $id,
+                    'menu_id' => $id,
                 ]);
             }
 
             $this->db->transCommit();
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             $this->db->transRollback();
 
             return $this->fail($e->getMessage());
@@ -202,8 +201,8 @@ class MenuController extends BaseController
             }
 
             return $this->respond([
-                'data'  => $found,
-                'menu'  => $this->menu->getMenu(),
+                'data' => $found,
+                'menu' => $this->menu->getMenu(),
                 'roles' => $this->menu->getRole(),
             ]);
         }

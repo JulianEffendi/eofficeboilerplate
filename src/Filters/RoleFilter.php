@@ -1,6 +1,6 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Filters;
+namespace julianeffendi\eofficeboilerplate\Filters;
 
 use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\Filters\FilterInterface;

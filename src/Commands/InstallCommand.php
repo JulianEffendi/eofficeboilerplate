@@ -1,6 +1,6 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Commands;
+namespace julianeffendi\eofficeboilerplate\Commands;
 
 use CodeIgniter\CLI\BaseCommand;
 use Config\Database;
@@ -68,8 +68,8 @@ class InstallCommand extends BaseCommand
             $this->call('migrate');
             // then seed data
             $seeder = Database::seeder();
-            $seeder->call('julianeffendi/eofficeboilerplate\Database\Seeds\BoilerplateSeeder');
-        } catch (\Exception $e) {
+            $seeder->call('julianeffendi\eofficeboilerplate\Database\Seeds\BoilerplateSeeder');
+        } catch (\Exception$e) {
             $this->showError($e);
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Controllers;
+namespace julianeffendi\eofficeboilerplate\Controllers;
 
 /**
  * Class DashboardController.
@@ -11,9 +11,9 @@ class DashboardController extends BaseController
     {
         $data = [
             'title' => 'Dashboard',
-            "coba"=> "Sasds"
+            "coba" => "Sasds",
         ];
 
-        return view('julianeffendi/eofficeboilerplate\Views\dashboard', $data);
+        return view('julianeffendi\eofficeboilerplate\Views\dashboard', $data);
     }
 }

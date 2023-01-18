@@ -1,9 +1,9 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Entities;
+namespace julianeffendi\eofficeboilerplate\Entities;
 
-use julianeffendi/eofficeboilerplate\Models\MenuModel;
 use CodeIgniter\Entity;
+use julianeffendi\eofficeboilerplate\Models\MenuModel;
 
 /**
  * Class MenuEntity.

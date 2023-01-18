@@ -1,6 +1,6 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Models;
+namespace julianeffendi\eofficeboilerplate\Models;
 
 use Myth\Auth\Authorization\PermissionModel as BaseModel;
 
@@ -24,10 +24,10 @@ class PermissionModel extends BaseModel
             ->select('id, name, description');
 
         return empty($search)
-            ? $builder
-            : $builder->groupStart()
-                ->like('name', $search)
-                ->orLike('description', $search)
+        ? $builder
+        : $builder->groupStart()
+            ->like('name', $search)
+            ->orLike('description', $search)
             ->groupEnd();
     }
 }

@@ -1,7 +1,7 @@
 <!-- Include duallistbox-->
-<?=$this->include('julianeffendi/eofficeboilerplate\Views\load\duallistbox')?>
+<?=$this->include('julianeffendi\eofficeboilerplate\Views\load\duallistbox')?>
 <!-- Extend from layout index -->
-<?=$this->extend('julianeffendi/eofficeboilerplate\Views\layout\index')?>
+<?=$this->extend('julianeffendi\eofficeboilerplate\Views\layout\index')?>
 
 <!-- Section content -->
 <?=$this->section('content')?>

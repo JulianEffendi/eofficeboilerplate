@@ -1,13 +1,13 @@
 <!-- Include -->
-<?=$this->include('julianeffendi/eofficeboilerplate\Views\load\nestable')?>
-<?=$this->include('julianeffendi/eofficeboilerplate\Views\load\select2')?>
-<?=$this->include('julianeffendi/eofficeboilerplate\Views\load\iconpicker')?>
+<?=$this->include('julianeffendi\eofficeboilerplate\Views\load\nestable')?>
+<?=$this->include('julianeffendi\eofficeboilerplate\Views\load\select2')?>
+<?=$this->include('julianeffendi\eofficeboilerplate\Views\load\iconpicker')?>
 <!-- Extend from layout index -->
-<?=$this->extend('julianeffendi/eofficeboilerplate\Views\layout\index')?>
+<?=$this->extend('julianeffendi\eofficeboilerplate\Views\layout\index')?>
 
 <!-- Section content -->
 <?=$this->section('content')?>
-    <?=$this->include('julianeffendi/eofficeboilerplate\Views\Menu\update')?>
+    <?=$this->include('julianeffendi\eofficeboilerplate\Views\Menu\update')?>
     <style>.fade.in{opacity: 1;}</style>
     <div class="row">
         <div class="col-lg-5">

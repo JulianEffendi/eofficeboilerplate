@@ -1,6 +1,6 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Controllers;
+namespace julianeffendi\eofficeboilerplate\Controllers;
 
 use CodeIgniter\Config\Services;
 use CodeIgniter\Controller;

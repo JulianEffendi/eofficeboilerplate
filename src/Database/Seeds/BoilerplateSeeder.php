@@ -1,6 +1,6 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Database\Seeds;
+namespace julianeffendi\eofficeboilerplate\Database\Seeds;
 
 use CodeIgniter\Config\Services;
 use CodeIgniter\Database\Seeder;
@@ -38,17 +38,17 @@ class BoilerplateSeeder extends Seeder
     {
         // User
         $this->users->save(new User([
-            'email'    => 'admin@admin.com',
+            'email' => 'admin@admin.com',
             'username' => 'admin',
             'password' => 'super-admin',
-            'active'   => '1',
+            'active' => '1',
         ]));
 
         $this->users->save(new User([
-            'email'    => 'user@user.com',
+            'email' => 'user@user.com',
             'username' => 'user',
             'password' => 'super-user',
-            'active'   => '1',
+            'active' => '1',
         ]));
 
         // Role
@@ -82,65 +82,65 @@ class BoilerplateSeeder extends Seeder
 
         $this->db->table('menu')->insertBatch([
             [
-                'parent_id'  => '0',
-                'title'      => 'Dashboard',
-                'icon'       => 'fas fa-tachometer-alt',
-                'route'      => 'admin',
-                'sequence'   => '1',
+                'parent_id' => '0',
+                'title' => 'Dashboard',
+                'icon' => 'fas fa-tachometer-alt',
+                'route' => 'admin',
+                'sequence' => '1',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'parent_id'  => '0',
-                'title'      => 'User Management',
-                'icon'       => 'fas fa-user',
-                'route'      => '#',
-                'sequence'   => '2',
+                'parent_id' => '0',
+                'title' => 'User Management',
+                'icon' => 'fas fa-user',
+                'route' => '#',
+                'sequence' => '2',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'parent_id'  => '2',
-                'title'      => 'User Profile',
-                'icon'       => 'fas fa-user-edit',
-                'route'      => 'admin/user/profile',
-                'sequence'   => '3',
+                'parent_id' => '2',
+                'title' => 'User Profile',
+                'icon' => 'fas fa-user-edit',
+                'route' => 'admin/user/profile',
+                'sequence' => '3',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'parent_id'  => '2',
-                'title'      => 'Users',
-                'icon'       => 'fas fa-users',
-                'route'      => 'admin/user/manage',
-                'sequence'   => '4',
+                'parent_id' => '2',
+                'title' => 'Users',
+                'icon' => 'fas fa-users',
+                'route' => 'admin/user/manage',
+                'sequence' => '4',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'parent_id'  => '2',
-                'title'      => 'Permissions',
-                'icon'       => 'fas fa-user-lock',
-                'route'      => 'admin/permission',
-                'sequence'   => '5',
+                'parent_id' => '2',
+                'title' => 'Permissions',
+                'icon' => 'fas fa-user-lock',
+                'route' => 'admin/permission',
+                'sequence' => '5',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'parent_id'  => '2',
-                'title'      => 'Roles',
-                'icon'       => 'fas fa-users-cog',
-                'route'      => 'admin/role',
-                'sequence'   => '6',
+                'parent_id' => '2',
+                'title' => 'Roles',
+                'icon' => 'fas fa-users-cog',
+                'route' => 'admin/role',
+                'sequence' => '6',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'parent_id'  => '2',
-                'title'      => 'Menu',
-                'icon'       => 'fas fa-stream',
-                'route'      => 'admin/menu',
-                'sequence'   => '7',
+                'parent_id' => '2',
+                'title' => 'Menu',
+                'icon' => 'fas fa-stream',
+                'route' => 'admin/menu',
+                'sequence' => '7',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
@@ -149,43 +149,43 @@ class BoilerplateSeeder extends Seeder
         $this->db->table('groups_menu')->insertBatch([
             [
                 'group_id' => 1,
-                'menu_id'  => 1,
+                'menu_id' => 1,
             ],
             [
                 'group_id' => 1,
-                'menu_id'  => 2,
+                'menu_id' => 2,
             ],
             [
                 'group_id' => 1,
-                'menu_id'  => 3,
+                'menu_id' => 3,
             ],
             [
                 'group_id' => 1,
-                'menu_id'  => 4,
+                'menu_id' => 4,
             ],
             [
                 'group_id' => 1,
-                'menu_id'  => 5,
+                'menu_id' => 5,
             ],
             [
                 'group_id' => 1,
-                'menu_id'  => 6,
+                'menu_id' => 6,
             ],
             [
                 'group_id' => 1,
-                'menu_id'  => 7,
+                'menu_id' => 7,
             ],
             [
                 'group_id' => 2,
-                'menu_id'  => 1,
+                'menu_id' => 1,
             ],
             [
                 'group_id' => 2,
-                'menu_id'  => 2,
+                'menu_id' => 2,
             ],
             [
                 'group_id' => 2,
-                'menu_id'  => 3,
+                'menu_id' => 3,
             ],
         ]);
     }

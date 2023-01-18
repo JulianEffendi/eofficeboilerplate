@@ -1,12 +1,12 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Controllers\Users;
+namespace julianeffendi\eofficeboilerplate\Controllers\Users;
 
-use julianeffendi/eofficeboilerplate\Controllers\BaseController;
-use julianeffendi/eofficeboilerplate\Entities\Collection;
-use julianeffendi/eofficeboilerplate\Models\GroupModel;
-use julianeffendi/eofficeboilerplate\Models\UserModel;
 use CodeIgniter\API\ResponseTrait;
+use julianeffendi\eofficeboilerplate\Controllers\BaseController;
+use julianeffendi\eofficeboilerplate\Entities\Collection;
+use julianeffendi\eofficeboilerplate\Models\GroupModel;
+use julianeffendi\eofficeboilerplate\Models\UserModel;
 use Myth\Auth\Authorization\PermissionModel;
 use Myth\Auth\Entities\User;
 
@@ -17,7 +17,7 @@ class UserController extends BaseController
 {
     use ResponseTrait;
 
-    /** @var \julianeffendi/eofficeboilerplate\Models\UserModel */
+    /** @var \julianeffendi\eofficeboilerplate\Models\UserModel */
     protected $users;
 
     public function __construct()
@@ -46,8 +46,8 @@ class UserController extends BaseController
             ));
         }
 
-        return view('julianeffendi/eofficeboilerplate\Views\User\index', [
-            'title'    => lang('boilerplate.user.title'),
+        return view('julianeffendi\eofficeboilerplate\Views\User\index', [
+            'title' => lang('boilerplate.user.title'),
             'subtitle' => lang('boilerplate.user.subtitle'),
         ]);
     }
@@ -62,9 +62,9 @@ class UserController extends BaseController
         if ($this->request->getMethod() === 'post') {
             $id = user()->id;
             $validationRules = [
-                'email'        => "required|valid_email|is_unique[users.email,id,$id]",
-                'username'     => "required|alpha_numeric_space|min_length[3]|is_unique[users.username,id,$id]",
-                'password'     => 'if_exist',
+                'email' => "required|valid_email|is_unique[users.email,id,$id]",
+                'username' => "required|alpha_numeric_space|min_length[3]|is_unique[users.username,id,$id]",
+                'password' => 'if_exist',
                 'pass_confirm' => 'matches[password]',
             ];
 
@@ -88,7 +88,7 @@ class UserController extends BaseController
             return redirect()->back()->withInput()->with('sweet-error', lang('boilerplate.user.msg.msg_get_fail'));
         }
 
-        return view('julianeffendi/eofficeboilerplate\Views\User\profile', [
+        return view('julianeffendi\eofficeboilerplate\Views\User\profile', [
             'title' => lang('boilerplate.user.fields.profile'),
         ]);
     }
@@ -98,13 +98,12 @@ class UserController extends BaseController
      *
      * @return mixed
      */
-    public function new()
-    {
-        return view('julianeffendi/eofficeboilerplate\Views\User\create', [
-            'title'       => lang('boilerplate.user.title'),
-            'subtitle'    => lang('boilerplate.user.add'),
+    function new () {
+        return view('julianeffendi\eofficeboilerplate\Views\User\create', [
+            'title' => lang('boilerplate.user.title'),
+            'subtitle' => lang('boilerplate.user.add'),
             'permissions' => $this->authorize->permissions(),
-            'roles'       => $this->authorize->groups(),
+            'roles' => $this->authorize->groups(),
         ]);
     }
 
@@ -116,13 +115,13 @@ class UserController extends BaseController
     public function create()
     {
         $validationRules = [
-            'active'       => 'required',
-            'username'     => 'required|alpha_numeric_space|min_length[3]|is_unique[users.username]',
-            'email'        => 'required|valid_email|is_unique[users.email]',
-            'password'     => 'required|strong_password',
+            'active' => 'required',
+            'username' => 'required|alpha_numeric_space|min_length[3]|is_unique[users.username]',
+            'email' => 'required|valid_email|is_unique[users.email]',
+            'password' => 'required|strong_password',
             'pass_confirm' => 'required|matches[password]',
-            'permission'   => 'required',
-            'role'         => 'required',
+            'permission' => 'required',
+            'role' => 'required',
         ];
 
         $permissions = $this->request->getPost('permission');
@@ -136,8 +135,8 @@ class UserController extends BaseController
 
         try {
             $id = $this->users->insert(new User([
-                'active'   => $this->request->getPost('active'),
-                'email'    => $this->request->getPost('email'),
+                'active' => $this->request->getPost('active'),
+                'email' => $this->request->getPost('email'),
                 'username' => $this->request->getPost('username'),
                 'password' => $this->request->getPost('password'),
             ]));
@@ -151,7 +150,7 @@ class UserController extends BaseController
             }
 
             $this->db->transCommit();
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             $this->db->transRollback();
 
             return redirect()->back()->with('sweet-error', $e->getMessage());
@@ -170,16 +169,16 @@ class UserController extends BaseController
     public function edit($id)
     {
         $data = [
-            'title'       => lang('boilerplate.user.title'),
-            'subtitle'    => lang('boilerplate.user.edit'),
+            'title' => lang('boilerplate.user.title'),
+            'subtitle' => lang('boilerplate.user.edit'),
             'permissions' => $this->authorize->permissions(),
-            'permission'  => (new PermissionModel())->getPermissionsForUser($id),
-            'roles'       => $this->authorize->groups(),
-            'role'        => (new GroupModel())->getGroupsForUser($id),
-            'user'        => $this->users->asArray()->find($id),
+            'permission' => (new PermissionModel())->getPermissionsForUser($id),
+            'roles' => $this->authorize->groups(),
+            'role' => (new GroupModel())->getGroupsForUser($id),
+            'user' => $this->users->asArray()->find($id),
         ];
 
-        return view('julianeffendi/eofficeboilerplate\Views\User\update', $data);
+        return view('julianeffendi\eofficeboilerplate\Views\User\update', $data);
     }
 
     /**
@@ -192,13 +191,13 @@ class UserController extends BaseController
     public function update($id)
     {
         $validationRules = [
-            'active'       => 'required',
-            'username'     => "required|alpha_numeric_space|min_length[3]|is_unique[users.username,id,$id]",
-            'email'        => "required|valid_email|is_unique[users.email,id,$id]",
-            'password'     => 'if_exist',
+            'active' => 'required',
+            'username' => "required|alpha_numeric_space|min_length[3]|is_unique[users.username,id,$id]",
+            'email' => "required|valid_email|is_unique[users.email,id,$id]",
+            'password' => 'if_exist',
             'pass_confirm' => 'matches[password]',
-            'permission'   => 'if_exist',
-            'role'         => 'if_exist',
+            'permission' => 'if_exist',
+            'role' => 'if_exist',
         ];
 
         if (!$this->validate($validationRules)) {
@@ -237,7 +236,7 @@ class UserController extends BaseController
             }
 
             $this->db->transCommit();
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             $this->db->transRollback();
 
             return redirect()->back()->with('sweet-error', $e->getMessage());

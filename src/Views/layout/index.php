@@ -28,16 +28,16 @@
   <div class="wrapper">
 
     <!-- Navbar -->
-    <?=$this->include('julianeffendi/eofficeboilerplate\Views\layout\header')?>
+    <?=$this->include('julianeffendi\eofficeboilerplate\Views\layout\header')?>
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <?=$this->include('julianeffendi/eofficeboilerplate\Views\layout\mainsidebar')?>
+    <?=$this->include('julianeffendi\eofficeboilerplate\Views\layout\mainsidebar')?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-      <?=$this->include('julianeffendi/eofficeboilerplate\Views\layout\contentheader')?>
+      <?=$this->include('julianeffendi\eofficeboilerplate\Views\layout\contentheader')?>
       <!-- /.content-header -->
 
       <!-- Main content -->

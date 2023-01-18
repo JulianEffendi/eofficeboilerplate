@@ -1,11 +1,11 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Controllers\Users;
+namespace julianeffendi\eofficeboilerplate\Controllers\Users;
 
-use julianeffendi/eofficeboilerplate\Controllers\BaseController;
-use julianeffendi/eofficeboilerplate\Entities\Collection;
-use julianeffendi/eofficeboilerplate\Models\PermissionModel;
 use CodeIgniter\API\ResponseTrait;
+use julianeffendi\eofficeboilerplate\Controllers\BaseController;
+use julianeffendi\eofficeboilerplate\Entities\Collection;
+use julianeffendi\eofficeboilerplate\Models\PermissionModel;
 
 /**
  * Class PermissionController.
@@ -14,7 +14,7 @@ class PermissionController extends BaseController
 {
     use ResponseTrait;
 
-    /** @var \julianeffendi/eofficeboilerplate\Models\PermissionModel */
+    /** @var \julianeffendi\eofficeboilerplate\Models\PermissionModel */
     protected $permission;
 
     /**
@@ -48,8 +48,8 @@ class PermissionController extends BaseController
             ));
         }
 
-        return view('julianeffendi/eofficeboilerplate\Views\Permission\index', [
-            'title'    => lang('boilerplate.permission.title'),
+        return view('julianeffendi\eofficeboilerplate\Views\Permission\index', [
+            'title' => lang('boilerplate.permission.title'),
             'subtitle' => lang('boilerplate.permission.subtitle'),
         ]);
     }

@@ -1,11 +1,11 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Controllers\Users;
+namespace julianeffendi\eofficeboilerplate\Controllers\Users;
 
-use julianeffendi/eofficeboilerplate\Controllers\BaseController;
-use julianeffendi/eofficeboilerplate\Entities\Collection;
-use julianeffendi/eofficeboilerplate\Models\GroupModel;
 use CodeIgniter\API\ResponseTrait;
+use julianeffendi\eofficeboilerplate\Controllers\BaseController;
+use julianeffendi\eofficeboilerplate\Entities\Collection;
+use julianeffendi\eofficeboilerplate\Models\GroupModel;
 
 /**
  * Class RoleController.
@@ -14,7 +14,7 @@ class RoleController extends BaseController
 {
     use ResponseTrait;
 
-    /** @var \julianeffendi/eofficeboilerplate\Models\GroupModel */
+    /** @var \julianeffendi\eofficeboilerplate\Models\GroupModel */
     protected $group;
 
     public function __construct()
@@ -43,10 +43,10 @@ class RoleController extends BaseController
             ));
         }
 
-        return view('julianeffendi/eofficeboilerplate\Views\Role\index', [
-            'title'    => lang('boilerplate.role.title'),
+        return view('julianeffendi\eofficeboilerplate\Views\Role\index', [
+            'title' => lang('boilerplate.role.title'),
             'subtitle' => lang('boilerplate.role.subtitle'),
-            'data'     => $this->authorize->permissions(),
+            'data' => $this->authorize->permissions(),
         ]);
     }
 
@@ -55,15 +55,14 @@ class RoleController extends BaseController
      *
      * @return array an array
      */
-    public function new()
-    {
+    function new () {
         $data = [
-            'title'    => lang('boilerplate.role.title'),
+            'title' => lang('boilerplate.role.title'),
             'subtitle' => lang('boilerplate.role.add'),
-            'data'     => $this->authorize->permissions(),
+            'data' => $this->authorize->permissions(),
         ];
 
-        return view('julianeffendi/eofficeboilerplate\Views\Role\create', $data);
+        return view('julianeffendi\eofficeboilerplate\Views\Role\create', $data);
     }
 
     /**
@@ -74,9 +73,9 @@ class RoleController extends BaseController
     public function create()
     {
         $validationRules = [
-            'name'        => 'required|min_length[5]|max_length[255]|is_unique[auth_groups.name]',
+            'name' => 'required|min_length[5]|max_length[255]|is_unique[auth_groups.name]',
             'description' => 'required|max_length[255]',
-            'permission'  => 'required',
+            'permission' => 'required',
         ];
 
         $name = $this->request->getPost('name');
@@ -97,7 +96,7 @@ class RoleController extends BaseController
             }
 
             $this->db->transCommit();
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             $this->db->transRollback();
 
             return redirect()->back()->with('sweet-error', $e->getMessage());
@@ -120,14 +119,14 @@ class RoleController extends BaseController
         }
 
         $data = [
-            'title'        => lang('boilerplate.role.title'),
-            'subtitle'     => lang('boilerplate.role.edit'),
-            'role'         => $this->authorize->group($id),
-            'permissions'  => $this->authorize->permissions(),
-            'permission'   => $this->authorize->groupPermissions($id),
+            'title' => lang('boilerplate.role.title'),
+            'subtitle' => lang('boilerplate.role.edit'),
+            'role' => $this->authorize->group($id),
+            'permissions' => $this->authorize->permissions(),
+            'permission' => $this->authorize->groupPermissions($id),
         ];
 
-        return view('julianeffendi/eofficeboilerplate\Views\Role\edit', $data);
+        return view('julianeffendi\eofficeboilerplate\Views\Role\edit', $data);
     }
 
     /**
@@ -140,9 +139,9 @@ class RoleController extends BaseController
     public function update($id = null)
     {
         $validationRules = [
-            'name'        => 'required|min_length[5]|max_length[255]',
+            'name' => 'required|min_length[5]|max_length[255]',
             'description' => 'required|max_length[255]',
-            'permission'  => 'required',
+            'permission' => 'required',
         ];
 
         $name = $this->request->getPost('name');
@@ -168,7 +167,7 @@ class RoleController extends BaseController
             }
 
             $this->db->transCommit();
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             $this->db->transRollback();
 
             return redirect()->back()->with('sweet-error', $e->getMessage());

@@ -74,12 +74,12 @@ Is it ready yet? Not so fast!! ;-) After publishing `Config/Auth.php` you need t
 `public $views` with these lines below:
 ```php
 public $views = [
-    'login'           => 'julianeffendi/eofficeboilerplate\Views\Authentication\login',
-    'register'        => 'julianeffendi/eofficeboilerplate\Views\Authentication\register',
-    'forgot'          => 'julianeffendi/eofficeboilerplate\Views\Authentication\forgot',
-    'reset'           => 'julianeffendi/eofficeboilerplate\Views\Authentication\reset',
-    'emailForgot'     => 'julianeffendi/eofficeboilerplate\Views\Authentication\emails\forgot',
-    'emailActivation' => 'julianeffendi/eofficeboilerplate\Views\Authentication\emails\activation',
+    'login'           => 'julianeffendi\eofficeboilerplate\Views\Authentication\login',
+    'register'        => 'julianeffendi\eofficeboilerplate\Views\Authentication\register',
+    'forgot'          => 'julianeffendi\eofficeboilerplate\Views\Authentication\forgot',
+    'reset'           => 'julianeffendi\eofficeboilerplate\Views\Authentication\reset',
+    'emailForgot'     => 'julianeffendi\eofficeboilerplate\Views\Authentication\emails\forgot',
+    'emailActivation' => 'julianeffendi\eofficeboilerplate\Views\Authentication\emails\activation',
 ];
 ```
 
@@ -87,8 +87,8 @@ Open `app\Config\Filters.php`, find `$aliases` and add these lines below:
 ```php
 public $aliases = [
     'login'      => \Myth\Auth\Filters\LoginFilter::class,
-    'role'       => \julianeffendi/eofficeboilerplate\Filters\RoleFilter::class,
-    'permission' => \julianeffendi/eofficeboilerplate\Filters\PermissionFilter::class,
+    'role'       => \julianeffendi\eofficeboilerplate\Filters\RoleFilter::class,
+    'permission' => \julianeffendi\eofficeboilerplate\Filters\PermissionFilter::class,
 ];
 ```
 
@@ -128,7 +128,7 @@ class Boilerplate extends BaseConfig
     public $appName = 'Boilerplate';
 
     public $dashboard = [
-        'namespace'  => 'julianeffendi/eofficeboilerplate\Controllers',
+        'namespace'  => 'julianeffendi\eofficeboilerplate\Controllers',
         'controller' => 'DashboardController::index',
         'filter'     => 'permission:back-office',
     ];

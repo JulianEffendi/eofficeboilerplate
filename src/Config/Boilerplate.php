@@ -1,6 +1,6 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Config;
+namespace julianeffendi\eofficeboilerplate\Config;
 
 use CodeIgniter\Config\BaseConfig;
 
@@ -20,9 +20,9 @@ class Boilerplate extends BaseConfig
     //--------------------------------------------------------------------------
 
     public $dashboard = [
-        'namespace'  => 'julianeffendi/eofficeboilerplate\Controllers',
+        'namespace' => 'julianeffendi\eofficeboilerplate\Controllers',
         'controller' => 'DashboardController::index',
-        'filter'     => 'permission:back-office',
+        'filter' => 'permission:back-office',
     ];
 
     //--------------------------------------------------------------------------
@@ -44,39 +44,39 @@ class Boilerplate extends BaseConfig
 
     public $theme = [
         'body-sm' => false,
-        'navbar'  => [
-            'bg'     => 'white',
-            'type'   => 'light',
+        'navbar' => [
+            'bg' => 'white',
+            'type' => 'light',
             'border' => true,
-            'user'   => [
+            'user' => [
                 'visible' => true,
-                'shadow'  => 0,
+                'shadow' => 0,
             ],
         ],
         'sidebar' => [
-            'type'    => 'dark',
-            'shadow'  => 4,
-            'border'  => false,
+            'type' => 'dark',
+            'shadow' => 4,
+            'border' => false,
             'compact' => true,
-            'links'   => [
-                'bg'     => 'blue',
+            'links' => [
+                'bg' => 'blue',
                 'shadow' => 1,
             ],
             'brand' => [
-                'bg'   => 'gray-dark',
+                'bg' => 'gray-dark',
                 'logo' => [
-                    'icon'   => 'favicon.ico', // path to image | this example icon on public root folder.
-                    'text'   => '<strong>Bo</strong>ilerplate',
+                    'icon' => 'favicon.ico', // path to image | this example icon on public root folder.
+                    'text' => '<strong>Bo</strong>ilerplate',
                     'shadow' => 2,
                 ],
             ],
             'user' => [
                 'visible' => true,
-                'shadow'  => 2,
+                'shadow' => 2,
             ],
         ],
         'footer' => [
-            'fixed'      => false,
+            'fixed' => false,
             'vendorname' => 'Your Awesome Vendor',
             'vendorlink' => 'https://your-awesome.com',
         ],

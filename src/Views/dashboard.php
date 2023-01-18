@@ -1,5 +1,5 @@
 <!-- Extend from layout index -->
-<?=$this->extend('julianeffendi/eofficeboilerplate\Views\layout\index')?>
+<?=$this->extend('julianeffendi\eofficeboilerplate\Views\layout\index')?>
 
 <!-- Section content -->
 <?=$this->section('content')?>

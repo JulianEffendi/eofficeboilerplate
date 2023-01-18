@@ -1,11 +1,11 @@
 <!-- Include -->
-<?=$this->include('julianeffendi/eofficeboilerplate\Views\load\datatables')?>
+<?=$this->include('julianeffendi\eofficeboilerplate\Views\load\datatables')?>
 <!-- Extend from layout index -->
-<?=$this->extend('julianeffendi/eofficeboilerplate\Views\layout\index')?>
+<?=$this->extend('julianeffendi\eofficeboilerplate\Views\layout\index')?>
 
 <!-- Section content -->
 <?=$this->section('content')?>
-    <?=$this->include('julianeffendi/eofficeboilerplate\Views\Permission\create')?>
+    <?=$this->include('julianeffendi\eofficeboilerplate\Views\Permission\create')?>
     <div class="row">
         <div class="col-12">
             <div class="card">

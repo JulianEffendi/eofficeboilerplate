@@ -1,4 +1,4 @@
-<?php //$this->extend('julianeffendi/eofficeboilerplate\Views\Authentication\index') ?>
+<?php //$this->extend('julianeffendi\eofficeboilerplate\Views\Authentication\index') ?>
 <?php $this->extend('Views/layout/aksi');?>
 
 <?=$this->section('content')?>
@@ -6,7 +6,7 @@
 <div class="card">
   <div class="card-body login-card-body">
     <p class="login-box-msg"><?=lang('Auth.loginTitle')?></p>
-    <?=$this->include('julianeffendi/eofficeboilerplate\Views\Authentication\message_block')?>
+    <?=$this->include('julianeffendi\eofficeboilerplate\Views\Authentication\message_block')?>
     <form action="<?=route_to('login')?>" method="post">
       <?=csrf_field()?>
       <?php if ($config->validFields === ['email']) {?>

@@ -25,14 +25,14 @@ class AuthTestCase extends CIDatabaseTestCase
      *
      * @var string
      */
-    protected $seed = 'julianeffendi/eofficeboilerplate\Database\Seeds\BoilerplateSeeder';
+    protected $seed = 'julianeffendi\eofficeboilerplate\Database\Seeds\BoilerplateSeeder';
 
     /**
      * The namespace to help us find the migration classes.
      *
      * @var string
      */
-    protected $namespace = ['Myth\Auth', 'julianeffendi/eofficeboilerplate'];
+    protected $namespace = ['Myth\Auth', 'julianeffendi\eofficeboilerplate'];
 
     /**
      * @var \Myth\Auth\Models\UserModel

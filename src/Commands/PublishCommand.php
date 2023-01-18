@@ -1,6 +1,6 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Commands;
+namespace julianeffendi\eofficeboilerplate\Commands;
 
 use CodeIgniter\CLI\BaseCommand;
 use CodeIgniter\CLI\CLI;
@@ -55,7 +55,7 @@ class PublishCommand extends BaseCommand
     protected $options = [];
 
     /**
-     * The path to julianeffendi/eofficeboilerplate\src directory.
+     * The path to julianeffendi\eofficeboilerplate\src directory.
      *
      * @var string
      */
@@ -80,18 +80,18 @@ class PublishCommand extends BaseCommand
         $path = "{$this->sourcePath}/Config/Boilerplate.php";
 
         $content = file_get_contents($path);
-        $content = str_replace('namespace julianeffendi/eofficeboilerplate\Config', 'namespace Config', $content);
+        $content = str_replace('namespace julianeffendi\eofficeboilerplate\Config', 'namespace Config', $content);
 
         $this->writeFile('Config/Boilerplate.php', $content);
     }
 
     protected function publishMigration()
     {
-        $map = directory_map($this->sourcePath.'/Database/Migrations');
+        $map = directory_map($this->sourcePath . '/Database/Migrations');
 
         foreach ($map as $file) {
             $content = file_get_contents("{$this->sourcePath}/Database/Migrations/{$file}");
-            $content = str_replace('namespace julianeffendi/eofficeboilerplate\Database\Migrations', 'namespace '.APP_NAMESPACE.'\Database\Migrations', $content);
+            $content = str_replace('namespace julianeffendi\eofficeboilerplate\Database\Migrations', 'namespace ' . APP_NAMESPACE . '\Database\Migrations', $content);
 
             $this->writeFile("Database/Migrations/{$file}", $content);
         }
@@ -125,7 +125,7 @@ class PublishCommand extends BaseCommand
      */
     protected function determineSourcePath()
     {
-        $this->sourcePath = realpath(__DIR__.'/../');
+        $this->sourcePath = realpath(__DIR__ . '/../');
 
         if ($this->sourcePath == '/' || empty($this->sourcePath)) {
             CLI::error('Unable to determine the correct source directory. Bailing.');
@@ -145,21 +145,21 @@ class PublishCommand extends BaseCommand
         $config = new Autoload();
         $appPath = $config->psr4[APP_NAMESPACE];
 
-        $directory = dirname($appPath.$path);
+        $directory = dirname($appPath . $path);
 
         if (!is_dir($directory)) {
             mkdir($directory, 0777, true);
         }
 
         try {
-            write_file($appPath.$path, $content);
-        } catch (\Exception $e) {
+            write_file($appPath . $path, $content);
+        } catch (\Exception$e) {
             $this->showError($e);
             exit();
         }
 
         $path = str_replace($appPath, '', $path);
 
-        CLI::write(CLI::color('  created: ', 'green').$path);
+        CLI::write(CLI::color('  created: ', 'green') . $path);
     }
 }

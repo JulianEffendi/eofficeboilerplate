@@ -1,7 +1,7 @@
 <?php
 
-use julianeffendi/eofficeboilerplate\Models\GroupMenuModel;
-use julianeffendi/eofficeboilerplate\Models\MenuModel;
+use julianeffendi\eofficeboilerplate\Models\GroupMenuModel;
+use julianeffendi\eofficeboilerplate\Models\MenuModel;
 
 if (!function_exists('menu')) {
     /**

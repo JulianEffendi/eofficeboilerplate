@@ -1,6 +1,6 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Models;
+namespace julianeffendi\eofficeboilerplate\Models;
 
 use Myth\Auth\Models\UserModel as BaseModel;
 
@@ -25,10 +25,10 @@ class UserModel extends BaseModel
             ->select('id, username, email, active, created_at');
 
         $condition = empty($search)
-            ? $builder
-            : $builder->groupStart()
-                ->like('username', $search)
-                ->orLike('email', $search)
+        ? $builder
+        : $builder->groupStart()
+            ->like('username', $search)
+            ->orLike('email', $search)
             ->groupEnd();
 
         return $condition->where('deleted_at', null);

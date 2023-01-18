@@ -1,6 +1,6 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Entities;
+namespace julianeffendi\eofficeboilerplate\Entities;
 
 class Collection
 {
@@ -16,10 +16,10 @@ class Collection
     public static function datatable(array $data, int $recordsTotal, int $recordsFiltered)
     {
         return [
-            'draw'            => service('request')->getGet('draw'),
-            'recordsTotal'    => $recordsTotal,
+            'draw' => service('request')->getGet('draw'),
+            'recordsTotal' => $recordsTotal,
             'recordsFiltered' => $recordsFiltered,
-            'data'            => $data,
+            'data' => $data,
         ];
     }
 }

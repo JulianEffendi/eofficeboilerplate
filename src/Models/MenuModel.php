@@ -1,9 +1,9 @@
 <?php
 
-namespace julianeffendi/eofficeboilerplate\Models;
+namespace julianeffendi\eofficeboilerplate\Models;
 
-use julianeffendi/eofficeboilerplate\Entities\MenuEntity;
 use CodeIgniter\Model;
+use julianeffendi\eofficeboilerplate\Entities\MenuEntity;
 
 /**
  * Class MenuModel.
@@ -27,11 +27,11 @@ class MenuModel extends Model
     protected $afterDelete = ['deleteCacheMenu'];
 
     protected $validationRules = [
-        'title'       => 'required|min_length[10]|max_length[60]',
-        'parent_id'   => 'required',
-        'active'      => 'required',
-        'icon'        => 'required',
-        'route'       => 'required',
+        'title' => 'required|min_length[10]|max_length[60]',
+        'parent_id' => 'required',
+        'active' => 'required',
+        'icon' => 'required',
+        'route' => 'required',
         'groups_menu' => 'required',
     ];
 
@@ -50,8 +50,8 @@ class MenuModel extends Model
     public function getMenuById($id)
     {
         return $this->db->DBDriver === 'Postgre'
-            ? $this->getMenuDRiverPostgre($id)
-            : $this->getMenuDriverMySQLi($id);
+        ? $this->getMenuDRiverPostgre($id)
+        : $this->getMenuDriverMySQLi($id);
     }
 
     /**
@@ -125,8 +125,8 @@ class MenuModel extends Model
      */
     protected function deleteCacheMenu()
     {
-        if (cache(user()->id.'_group_menu')) {
-            cache()->delete(user()->id.'_group_menu');
+        if (cache(user()->id . '_group_menu')) {
+            cache()->delete(user()->id . '_group_menu');
         }
     }
 }
